@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this repository is
 
 A personal LeetCode practice repository.
-This is a learning space. The owner is here to work problems out for himself.
+This is a learning space. The owner is here to work problems out for themselves (Refer to user as a they for PRO-NOUNS).
 Solutions are learning exercises, not production code and not a reusable library.
 See README.md for the full description.
 
