@@ -76,7 +76,8 @@ Do not wait for the user to spell out the steps each time.
 1. `git fetch origin --prune`
 2. `git checkout main`
 3. `git merge --ff-only origin/main` to fast-forward local `main` to the merged state.
-4. Delete the feature branch locally: `git branch -d <feature-branch>`.
+4. Delete the feature branch locally: `git branch -D <feature-branch>`.
+   Use `-D`, not `-d`: squash and rebase merges rewrite the SHA, so `-d` refuses the delete even though the work landed.
 5. Delete the feature branch on the remote: `git push origin --delete <feature-branch>`.
 6. Verify the result: on `main`, in sync with `origin/main`, and the feature branch gone from both local and remote.
 7. Remove any temporary or scratch directories and scaffolding created during the work.
