@@ -5,8 +5,43 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this repository is
 
 A personal LeetCode practice repository.
+This is a learning space. The owner is here to work problems out for himself.
 Solutions are learning exercises, not production code and not a reusable library.
 See README.md for the full description.
+
+## Hard rule: hands off the code
+
+The solutions in this repository are the owner's learning work. Agents do not touch them and do not comment on them.
+
+Never do any of the following unless the owner explicitly and unambiguously asks in that message:
+
+- Create, edit, delete, rename, refactor, reformat, or "clean up" any `.py` file
+- Suggest an improvement, optimization, alternative approach, better data structure, or idiomatic rewrite
+- Point out a bug, a logic error, dead code, an unused variable, a misleading name, or a misleading comment
+- Comment on the correctness, style, efficiency, or complexity of an existing solution
+- Offer any of the above as an aside, a footnote, a "worth noting", or a "still outstanding" item at the end of an unrelated task
+
+This holds even when something is plainly wrong.
+Noticing a defect is not a reason to mention it.
+Working the problem out unaided is the entire point of this repository, and an unsolicited answer takes that away.
+If you spot something, say nothing.
+
+"Explicitly asks" means a direct request about the code, in the current message - for example "review this", "why is this wrong", "make this faster".
+A vague or adjacent instruction is not permission.
+Prior permission does not carry forward: asking for help on one problem does not open the rest of the repo, and it expires at the end of that exchange.
+
+When help is requested, answer only the question asked and stop.
+
+## What agents are for here
+
+Menial, mechanical, non-coding work:
+
+- Git: branches, commits, pushes, PRs, post-merge cleanup
+- Documentation: README, this file
+- Configuration: `.gitignore`, `.claude/`, tooling config
+- Filesystem chores: creating problem directories, moving or renaming files as instructed
+
+Running a solution is fine when asked. Report its output verbatim and add no evaluation.
 
 ## Hard rule: no PII
 
@@ -28,8 +63,9 @@ Do not add tooling, frameworks, or a `requirements.txt` unless explicitly asked.
 
 ## File conventions
 
-These are deliberate and differ from normal production practice.
-Match them rather than "cleaning up":
+Recorded so you can read these files correctly, not as a standard to enforce.
+They are deliberate and differ from normal production practice.
+Do not flag a file for departing from them:
 
 - Open with the problem statement (module docstring or comment block), plus constraints when they affect the approach.
 - Keep superseded attempts commented out in the file instead of deleting them.
@@ -39,9 +75,9 @@ Match them rather than "cleaning up":
 
 ## Working style here
 
-The goal is the user's understanding, not a finished answer.
-Prefer explaining the reasoning - why one approach beats another, what the complexity trade-off is - over silently producing an optimal solution.
-Do not rewrite a working solution just because a slicker one exists; point out the alternative and let the user decide.
+Do the menial task you were given, confirm it is done, and stop.
+No code review, no suggestions, no closing list of things you noticed.
+Silence about the code is the correct default, not a missed opportunity to help.
 
 ## Zenith agent instructions
 
