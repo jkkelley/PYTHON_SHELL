@@ -1,0 +1,35 @@
+.PHONY: up down
+
+REGION ?= <US-EAST-2 default please unless otherwise specified>
+AMI_ID ?= <Find macos us-east-2 region>
+INSTANCE_TYPE ?= t2.micro
+KEY_NAME ?= your-key-name # < What is this asking for?
+BUCKET_ARN ?= arn:aws:s3:::python-lib-690712292635-us-east-2-an
+
+up:
+	@echo "Creating IAM role and instance profile..."
+	@aws iam create-role --role-name minecraft-admin-role --assume-role-policy-document '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":"ec2.amazonaws.com"},"Action":"sts:AssumeRole"}]}'
+	@aws iam create-instance-profile --instance-profile-name minecraft-admin
+	@aws iam add-role-to-instance-profile --instance-profile-name minecraft-admin --role-name minecraft-admin-role
+	@echo "Launching EC2 instance..."
+	@aws ec2 run-instances \
+		--image-id $(AMI_ID) \
+		--count 1 \
+		--instance-type $(INSTANCE_TYPE) \
+		--key-name $(KEY_NAME) \
+		--iam-instance-profile Name=minecraft-admin \
+		--query 'Instances[0].InstanceId' \
+		--output text > instance_id.txt
+
+down:
+	@echo "Terminating AWS instance..."
+	@if [ -f instance_id.txt ]; then \
+		aws ec2 terminate-instances --instance-ids $$(cat instance_id.txt); \
+		aws ec2 wait instance-terminated --instance-ids $$(cat instance_id.txt); \
+		rm instance_id.txt; \
+	fi
+	@echo "Cleaning up IAM instance profile and role..."
+	@aws iam remove-role-from-instance-profile --instance-profile-name minecraft-admin --role-name minecraft-admin-role || true
+	@aws iam delete-instance-profile --instance-profile-name minecraft-admin || true
+	@aws iam delete-role --role-name minecraft-admin-role || true
+	@echo "Teardown complete."

@@ -1,0 +1,44 @@
+🎫 Ticket: PDF-to-Audiobook Converter
+
+Description:
+Develop a Python application that reads text from a selected PDF file and converts it into speech, creating a simple audiobook experience.
+
+Acceptance Criteria:
+
+    Project runs inside an isolated Python virtual environment (venv).
+
+    Prompts the user with a file dialog to select a target PDF.
+
+    Successfully iterates through all pages of the selected PDF.
+
+    Extracts text and plays it back as generated audio.
+
+Tasks & Checklist:
+
+    [X] 1. Add Dependencies: Add the required external packages (pyttsx3 and PyPDF2) to requirements.txt.
+
+    [X] 2. Initialize Project: Create the project directory and set up a Python virtual environment (venv).
+        [X] - Directory created
+            - pdf-to-audiobook
+
+        [X] - venv created
+            - python3 -m venv .venv
+            - source .venv/bin/activate
+            - pip install -r requirements.txt
+
+        [X] - Ticket saved to instructions.txt locally
+
+    [X] 3. Set Up the Script: Create the main Python file and import the necessary libraries (including tkinter for the file dialog).
+
+    [X] 4. Build the File Picker: Write the logic to open a window asking the user to locate their PDF.
+
+    [X] 5. Process the PDF: Initialize the PDF reader and set up a loop to go through each page.
+
+    [ ] 6. Extract & Speak: Within the loop, extract the text from the current page and pass it to the text-to-speech engine to read aloud.
+
+    [ ] 7. Test & Verify: Run the script with a sample PDF to ensure the audio playback matches the document text.
+        [ ] - Download a simple, 1-page dummy PDF to the project folder.
+        [ ] - Run the script and select the dummy PDF.
+        [ ] - Confirm the terminal prints the plain text and the audio matches exactly.
+
+Let's start checking off these boxes. What command will you use in your terminal to create the virtual environment for step 1?
